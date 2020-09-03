@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>office1</title>
+</head>
+<body>
+    <script>
+       function generateFunction(num1){
+       
+         function func2(num2){
+          return num1 + num2;
+         }
+             
+        return func2;
+       }
+       
+      var addTwoFunc = generateFunction(2);
+      var addFiveFunc = generateFunction(5);
+
+      var result1 = addTwoFunc(2);
+      var result2 = addFiveFunc(2);
+
+      console.log(" this is results 1" +result1);
+      console.log("this is results 2 " + result2);
+
+    </script>
+    
+</body>
+</html>
