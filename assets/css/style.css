@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css?family=Codystar:300&display=swap');
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  line-height: 1;
+  background-image: linear-gradient(122deg, #051422, rgb(44, 7, 44));
+  min-height: 100vh;
+}
+
+.box {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+p {
+  color: blueviolet;
+}
+
+
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.content {
+  text-align: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: x-large;
+}
+
+h1 {
+  font-size: 72px;
+  background: -webkit-linear-gradient(rgb(156, 238, 25), rgb(243, 92, 248));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-animation: glow 2s ease-in-out infinite alternate;
+  -moz-animation: glow 2s ease-in-out infinite alternate;
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+p {
+  font-size: 28px;
+  background: -webkit-linear-gradient(rgb(156, 238, 25), rgb(243, 92, 248));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+* {
+  box-sizing: border-box;
+}
+/* choosing an option for the type of input area for the search option */
+/* form.example input[type=text] {
+  padding: 10px;
+  font-size: 17px;
+  border: 1px solid grey;
+  float: left;
+  width: 80%;
+  background: #f1f1f1;
+}
+
+form.example button {
+  float: left;
+  width: 20%;
+  padding: 10px;
+  background-image: -webkit-linear-gradient( rgb(243, 92, 248),rgb(156, 238, 25));
+  color: white;
+  font-size: 17px;
+  border: 1px solid grey;
+  border-left: none;
+  cursor: pointer;
+}
+
+form.example button:hover {
+  background-image: -webkit-linear-gradient(rgb(156, 238, 25), rgb(243, 92, 248));
+}
+
+form.example::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.checkbox{
+  font-size: 28px;
+    background: -webkit-linear-gradient(rgb(156, 238, 25), rgb(243, 92, 248));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+} */
+
+img {
+  height: 400px;
+  width: 400px;
+}
+
+select {
+  background-image: -webkit-linear-gradient(rgb(156, 238, 25), rgb(243, 92, 248));
+  /* width: 20%; */
+  padding: 10px;
+  font-size: 17px;
+  border: 1px solid grey;
+  cursor: pointer;
+  float: left;
+  position: relative;
+  width: 25%;
+  margin-left: 25%;
+  margin-bottom: 20px;
+}
+
+
+
+
+select:hover {
+  background-image: -webkit-linear-gradient(rgb(243, 92, 248), rgb(156, 238, 25));
+}
+
+#map {
+  float: left;
+  width: 50%;
+  text-align: center;
+  border-style: double;
+
+}
+
+#info {
+  float: right;
+  width: 50%;
+  text-align: center;
+  border-style: double;
+ 
+}
+
+#miles {
+  float: right;
+  position: relative;
+  width: 25%;
+  margin-right: 25%;
+  margin-left: 0%;
+  margin-bottom: 20px;
+
+}
+
+@-webkit-keyframes glow {
+  from {
+    color: #fff;
+    text-shadow: 0 0 10px #00fff2, 0 0 20px #00fff2, 0 0 30px #00fff2, 0 0 40px #00fff2, 0 0 50px #00fff2, 0 0 60px #00fff2, 0 0 70px #00fff2, 0 0 90px #00fff2;
+  }
+
+  to {
+    color: gray;
+    text-shadow: 0 0 20px #00fff2, 0 0 30px #00fff2, 0 0 40px #00fff2, 0 0 50px #00fff2, 0 0 60px #00fff2, 0 0 70px #00fff2, 0 0 80px #00fff2, 0 1 90px #00fff2;
+  }
+}
