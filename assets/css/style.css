@@ -42,6 +42,7 @@ h1 {
   -webkit-animation: glow 2s ease-in-out infinite alternate;
   -moz-animation: glow 2s ease-in-out infinite alternate;
   animation: glow 2s ease-in-out infinite alternate;
+  text-align: center;
 }
 
 p {
@@ -55,10 +56,10 @@ p {
   box-sizing: border-box;
 }
 
-
-img {
-  height: 400px;
-  width: 400px;
+figure {
+  height: 200px;
+  width: 300px;
+  text-align: center;
 }
 
 select {
@@ -97,17 +98,54 @@ select:hover {
   border-style: double;
  
 }
-
-#miles {
-  float: right;
-  position: relative;
-  width: 25%;
-  margin-right: 25%;
-  margin-left: 0%;
-  margin-bottom: 20px;
+.control1{
+  width: 50%;
+  text-align: center;
+}
+.control2{
+  width: 50%;
+  text-align: center;
+  
 
 }
+.field1{
+  width: 50%;
+  margin-right: 0%;
+  float: left;
+  margin-top: 10%;
+  
+}
 
+
+.field2{
+  width: 50%;
+  margin-right: 0%;
+  float: right;
+  margin-top: 10%
+
+  
+}
+#milesTab{
+ width: 100%;
+ 
+}
+#whosOpenTab{
+
+}
+#search{
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  
+  
+}
+select{
+  width: 75%;
+}
+#miles{
+  float: right;
+  width: 50%;
+}
 @-webkit-keyframes glow {
   from {
     color: #fff;
