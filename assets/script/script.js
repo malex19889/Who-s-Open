@@ -36,7 +36,6 @@ function placesCall() {
       console.log(placeInfo)
       placesInfo = placeInfo
       renderInfo();
-      
   })
 }
 function renderInfo(){
