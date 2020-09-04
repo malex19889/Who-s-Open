@@ -6,8 +6,7 @@ var photoId = [];
 var lat = null;
 var lon = null;
 var photoRef = [];
-// click function
-
+// search click function
 $("#search").on("click", function () {
   alert("click")
   placesCall();
