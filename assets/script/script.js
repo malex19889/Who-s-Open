@@ -1,8 +1,8 @@
 // global vars
 var place = null;
 var placesInfo = null;
-var placeId = null;
-var photoId = null;
+var placeId = [];
+var photoId = [];
 var lat = null;
 var lon = null;
 var photoRef = [];
@@ -22,7 +22,6 @@ function getLocation() {
 }
 // function to set coords
 function showPosition(position) {
-  console.log(position);
   lat = position.coords.latitude; 
   lon = position.coords.longitude;
   console.log(lat)
@@ -30,14 +29,13 @@ function showPosition(position) {
 }
 // google places API call
 function placesCall() {
-  var queryURL = "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?location="+lat+","+lon+"&radius=1500&type=gas&opennow&key="+config.MY_KEY;
+  var queryURL = "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?location="+lat+","+lon+"&radius=1500&type=bar&opennow&key="+config.MY_KEY;
   $.ajax({
     url: queryURL,
     method: "GET",
   }).then(function (placeInfo) {
       console.log(placeInfo)
       placesInfo = placeInfo
-      console.log(placesInfo)
       renderInfo();
       
   })
