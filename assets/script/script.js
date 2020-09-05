@@ -1,8 +1,12 @@
-// global vars
+// handle for type from html drop down
 var place = null;
+// handle for radius from html drop down
 var radius = null;
+// global holder for places info
 var placesInfo = null;
+// global var for place
 var placesDeets = null;
+var placeDeetsEl = null;
 var placesPic =null;
 var placeId = null;
 var photoId = null;
@@ -43,6 +47,7 @@ function placesCall() {
             alert("info click")
             // console.log(this.data_photoid)
             console.log(this)
+            placeDeetsEl = $(this);
             placeId = $(this).attr("data-placeId");
             photoId = $(this).attr("data-photoId");
             console.log(placeId)
@@ -105,17 +110,17 @@ function  renderDetsInfo(){
     // create phone nuber element
     console.log($(this))
     // console.log(deetsEl)
-    // var phoneNum = $("<p>");
-    // var openHours = $("<ul>");
-    // phoneNum.text(placesDeets.result.formatted_phone_number);
-    // $(deetsEl).append(phoneNum);
-    // $(deetsEl).append(openHours);
-    // // loop to create open hours 
-    // for(var i = 0; i< placesDeets.result.opening_hours.weekday_text.length; i++){
-    //     var day = $("<li>");
-    //     day.text(placesDeets.result.opening_hours.weekday_text[i]);
-    //     openHours.append(day);
-    // }
+    var phoneNum = $("<p>");
+    var openHours = $("<ul>");
+    phoneNum.text(placesDeets.result.formatted_phone_number);
+    $(placeDeetsEl).append(phoneNum);
+    $(placeDeetsEl).append(openHours);
+    // loop to create open hours 
+    for(var i = 0; i< placesDeets.result.opening_hours.weekday_text.length; i++){
+        var day = $("<li>");
+        day.text(placesDeets.result.opening_hours.weekday_text[i]);
+        openHours.append(day);
+    }
 }
 // call location function on webpage load
 getLocation();
