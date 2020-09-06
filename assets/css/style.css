@@ -24,6 +24,11 @@ img {
   display: block;
   margin-left: auto;
   margin-right: auto;
+  height: 400px;
+  width: 400px;
+  border-style: double;
+  border-color:  -webkit-linear-gradient(rgb(156, 238, 25), rgb(243, 92, 248)); 
+  border-width: 5px;
 }
 
 .content {
@@ -36,6 +41,7 @@ img {
 
 h1 {
   font-size: 72px;
+  font-weight: bolder;
   background: -webkit-linear-gradient(rgb(156, 238, 25), rgb(243, 92, 248));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -72,14 +78,18 @@ select {
   float: left;
   position: relative;
   width: 25%;
-  margin-left: 25%;
+  margin-left: 50%;
   margin-bottom: 20px;
 }
 
 
 
 
+
 select:hover {
+  background-image: -webkit-linear-gradient(rgb(243, 92, 248), rgb(156, 238, 25));
+}
+#search:hover{
   background-image: -webkit-linear-gradient(rgb(243, 92, 248), rgb(156, 238, 25));
 }
 
@@ -100,11 +110,13 @@ select:hover {
 }
 .control1{
   width: 50%;
-  text-align: center;
+  text-align: right;
+  margin-left: 30%;
 }
 .control2{
   width: 50%;
   text-align: center;
+  margin-right: 60%;
   
 
 }
@@ -115,11 +127,19 @@ select:hover {
   margin-top: 10%;
   
 }
+#whosOpenTab.select.is-primary{
+  margin-left: 20%;
+}
+#milesTab.select.is-primary{
+  margin-right: 50%;
+  
+}
 
 
 .field2{
   width: 50%;
   margin-right: 0%;
+  margin-left: 0%;
   float: right;
   margin-top: 10%
 
@@ -128,14 +148,16 @@ select:hover {
 #milesTab{
  width: 100%;
  
-}
-#whosOpenTab{
+ }
 
-}
 #search{
   text-align: center;
   display: flex;
   justify-content: center;
+  background-image: -webkit-linear-gradient(rgb(156, 238, 25), rgb(243, 92, 248));
+  height: 25px;
+  width: 25px;
+  margin-left: 50%;
   
   
 }
@@ -145,6 +167,7 @@ select{
 #miles{
   float: right;
   width: 50%;
+  
 }
 @-webkit-keyframes glow {
   from {
