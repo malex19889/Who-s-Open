@@ -16,15 +16,13 @@
     https://cdn.jsdelivr.net/npm/bulma@0.9.0/package.json
     https://cdn.jsdelivr.net/npm/bulma@0.9.0/README.md">
     <link href=’https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel=‘stylesheet’ /> -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
   <!-- link for our css -->
   <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
   <!-- link for Jquery and ajax -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>
-  
   <!-- link to external jS CDn -->
-  
 
   <title>Who's Open</title>
 </head>
@@ -67,8 +65,7 @@
             wings and boose yourself into a covid coma. Or just do some shopping.
             never waste time looking for your favorite spot again.
           </p>
-        </div>
-    </article>
+
 
           <!-- Search options section -->
           <!-- <label class="checkbox">
@@ -88,11 +85,11 @@
           <div class="field1">
             <div class="control1">
               <div class="select is-primary" id="whosOpenTab">
-                <select>
-                  <option class="button is-danger" >whos open??</option>
-                  <option class="button is-danger">bar/resturant with indoor seating</option>
-                  <option class="button is-danger">bar/resturant with outdoor seating</option>
-                  <option class="button is-danger" >general shopping</option>
+                <select id="place" >
+                  <option class="button is-danger" >who's open?</option>
+                  <option class="button is-danger">bar</option>
+                  <option class="button is-danger">restaurant</option>
+                  <option class="button is-danger" >store</option>
                 </select>
               </div>
             </div>
@@ -102,9 +99,9 @@
               <div class="select is-primary" id="milesTab">
                 <select id="miles">
                   <option class="button is-danger" >mile radius</option>
+                  <option class="button is-danger">1 mile</option>
                   <option class="button is-danger">5 miles</option>
                   <option class="button is-danger">10 miles</option>
-                  <option class="button is-danger" >15 miles</option>
                 </select>
               </div>
             </div>
@@ -144,7 +141,7 @@
 
 
   <!-- link to script.js -->
-  <script src="switch-toggle-all.js"></script>
+  <!-- <script src="switch-toggle-all.js"></script> -->
   <script src="assets/script/config.js"></script>
   <script src="./assets/script/script.js"></script>
 </body>
