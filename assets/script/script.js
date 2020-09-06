@@ -31,11 +31,16 @@ function showPosition(position) {
 // search click function
 $("#search").on("click", function () {
   alert("click")
+  place = $("#place").val();
+  console.log(place)
   placesCall();
 })
 // google places API call
 function placesCall() {
-  var queryURL = "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?location="+lat+","+lon+"&radius=1500&type=restaurant&opennow&key="+config.MY_KEY;
+  if (place === "who's open?") {
+    alert("no selection made")
+  } else {
+  var queryURL = "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?location="+lat+","+lon+"&radius=1500&type="+place+"&opennow&key="+config.MY_KEY;
   $.ajax({
     url: queryURL,
     method: "GET",
@@ -55,6 +60,7 @@ function placesCall() {
             placesDeetsCall();
           })
   })
+}
 }
 // function to render places search info
 function renderInfo(){
