@@ -38,7 +38,27 @@ $("#search").on("click", function () {
 // google places API call
 function placesCall() {
   if (place === "who's open?") {
-    alert("no selection made")
+    // create modal elements 
+    var modal = $("<div>");
+    var modalBack = $("<div>");
+    var modalCont = $("<div>");
+    var modalP = $("<p>");
+    var modalBtn = $("<button>");
+    // apply modal class
+    modal.attr("class","modal is-active is-clipped");
+    modalBack.attr("class","modal-background");
+    modalCont.attr("class","modal-content modal-card");
+    modalP.text("Please select search options for type and radius before starting a search!");
+    modalBtn.attr("class","modal-close is-large")
+    // append elements to HTML
+    $("#info").append(modal)
+    modal.append(modalBtn)
+    modal.append(modalCont)
+    modal.append(modalP)
+    modal.append(modalBtn)
+    $(".modal").on("click", function () {
+      modal.attr("class","modal is-clipped");
+    })
   } else {
   var queryURL = "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?location="+lat+","+lon+"&radius=1500&type="+place+"&opennow&key="+config.MY_KEY;
   $.ajax({
@@ -108,8 +128,6 @@ function placesDeetsCall() {
         console.log(placeDeets)
         placesDeets = placeDeets
         renderDetsInfo();      
-       
-        
     })
   }
 function  renderDetsInfo(){
