@@ -70,15 +70,15 @@ figure {
 
 select {
   background-image: -webkit-linear-gradient(rgb(156, 238, 25), rgb(243, 92, 248));
-  /* width: 20%; */
+
   padding: 10px;
   font-size: 17px;
   border: 1px solid grey;
   cursor: pointer;
   float: left;
   position: relative;
-  width: 25%;
-  margin-left: 50%;
+  width: 250px;
+  margin-left: 10%;
   margin-bottom: 20px;
   }
 
