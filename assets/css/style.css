@@ -80,7 +80,7 @@ select {
   width: 25%;
   margin-left: 50%;
   margin-bottom: 20px;
-}
+  }
 
 
 
@@ -110,13 +110,15 @@ select:hover {
 }
 .control1{
   width: 50%;
-  text-align: right;
-  margin-left: 30%;
+  /* text-align: right; */
+  margin-left: 25%;
+  margin-right: 0%;
 }
 .control2{
   width: 50%;
-  text-align: center;
+  /* text-align: center; */
   margin-right: 60%;
+  margin-left: 10%;
   
 
 }
@@ -128,12 +130,31 @@ select:hover {
   
 }
 #whosOpenTab.select.is-primary{
-  margin-left: 20%;
+  position: sticky;
+  right: 500px;
+  display: block;
+  margin-left: 0%;
+  margin-right: 0%;
+  
+ 
 }
+/* #whosOpenTab.select.is-primary::after{
+  position: sticky;
+   left: 300px;
+  top: 20px; 
+} */
+
 #milesTab.select.is-primary{
-  margin-right: 50%;
+  position: sticky;
+  margin-right: 30%;
+  display: block;
   
 }
+/* #milesTab.select.is-primary::after{
+  position: sticky;
+  left: 220px;
+  top: 20px;
+} */
 
 
 .field2{
@@ -141,9 +162,7 @@ select:hover {
   margin-right: 0%;
   margin-left: 0%;
   float: right;
-  margin-top: 10%
-
-  
+  margin-top: 10%;  
 }
 #milesTab{
  width: 100%;
@@ -161,12 +180,15 @@ select:hover {
   
   
 }
-select{
-  width: 75%;
+#place{
+  width: 100%;
+  margin-right: 0%;
+  margin-left: 10%;
 }
 #miles{
   float: right;
-  width: 50%;
+  width: 75%;
+  margin-left: 20%;
   
 }
 @-webkit-keyframes glow {
