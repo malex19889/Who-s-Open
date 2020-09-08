@@ -1,32 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <!-- link for fonts CDN -->
 
-    <!-- link for external CSS CDN -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- link for fonts CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-     <!-- link for our css -->
-    <link rel="stylesheet" href="style.css">
-    <!-- link for Jquery and ajax -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <!-- link to external jS CDn -->
 
-    <title>Who's Open</title>
+  <!-- link for external CSS CDN -->
+  <!-- <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/bulma.sass
+    https://cdn.jsdelivr.net/npm/bulma@0.9.0/CHANGELOG.md
+    https://cdn.jsdelivr.net/npm/bulma@0.9.0/LICENSE
+    https://cdn.jsdelivr.net/npm/bulma@0.9.0/package.json
+    https://cdn.jsdelivr.net/npm/bulma@0.9.0/README.md">
+    <link href=’https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel=‘stylesheet’ /> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+  <!-- link for our css -->
+  <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+  <!-- link for Jquery and ajax -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>
+  <!-- link to external jS CDn -->
+
+  <title>Who's Open</title>
 </head>
+
 <body>
-    <!-- page container? -->
 
-    <!-- Who's Open head bar -->
 
-    <!-- App Story section -->
 
-    <!-- Search options section -->
 
-    <!-- Search button section -->
 
-    <!-- link to script.js -->
-    <script src="./assets/script/script.js"></script>
+
+
+
+
+  <!-- page container? -->
+  <img
+            src="https://cdn4.vectorstock.com/i/1000x1000/73/73/party-time-neon-lettering-in-retro-style-vector-24957373.jpg"
+            alt="Image">
+            <br><br>
+  <h1>Who's Open?</h1>
+  <div class="box">
+    <article class="media">
+      <!-- <div class="media-left">
+        <figure class="image is-200x300"> -->
+          <!-- <img
+            src="https://cdn4.vectorstock.com/i/1000x1000/73/73/party-time-neon-lettering-in-retro-style-vector-24957373.jpg"
+            alt="Image"> -->
+        <!-- </figure>
+      </div> -->
+      <div class="media-content">
+        <div class="content">
+          <!-- Who's Open head bar -->
+          <!-- <h1>Who's Open?</h1> -->
+          <br>
+          <p>
+            <!-- App Story section -->
+            Ever get fed up with driving halfway accross the city only to find out your favorite spot to imbibe a good
+            time has shut down due to covid-19?
+            Well never again will you face those bummers with our WHO'S OPEN app. Now you can now eat your weight in chicken
+            wings and boose yourself into a covid coma. Or just do some shopping.
+            never waste time looking for your favorite spot again.
+          </p>
+
+
+          <!-- Search options section -->
+          <!-- <label class="checkbox">
+            <input type="checkbox">
+            late night
+          </label>
+          <label class="checkbox">
+            <input type="checkbox">
+            happy hour
+          </label>
+          <label class="checkbox">
+            <input type="checkbox">
+            brunch
+          </label>
+          <br><br> -->
+          <br><br><br><br>
+          <div class="field1">
+            <div class="control1">
+              <div class="select is-primary" id="whosOpenTab">
+                <select id="place" >
+                  <option class="button is-danger" >who's open?</option>
+                  <option class="button is-danger">bar</option>
+                  <option class="button is-danger">restaurant</option>
+                  <option class="button is-danger" >store</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class= "field2">
+            <div class="control2">
+              <div class="select is-primary" id="milesTab">
+                <select id="miles">
+                  <option class="button is-danger" >mile radius</option>
+                  <option class="button is-danger">1 mile</option>
+                  <option class="button is-danger">5 miles</option>
+                  <option class="button is-danger">10 miles</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <br><br><br><br>
+          <button type="submit" id="search" ><i class="fa fa-search"></i></button>
+          <br><br><br><br>
+
+
+
+          <!-- Search button section -->
+          <!-- <form class="example" action="/action_page.php" style="margin:auto;max-width:300px">
+            <input type="text" placeholder="Bar or Resturant search..." name="search2">
+             <button type="submit"><i class="fa fa-search"></i></button> 
+          </form> -->
+         
+          <div class="columns">
+            <div id="map">
+              First column
+            </div>
+            <div id="info">
+              Second column
+            </div>
+           
+          </div>
+
+
+
+
+          
+
+
+    
+   </div>
+
+
+
+
+  <!-- link to script.js -->
+  <!-- <script src="switch-toggle-all.js"></script> -->
+  <script src="assets/script/config.js"></script>
+  <script src="./assets/script/script.js"></script>
 </body>
+
 </html>
