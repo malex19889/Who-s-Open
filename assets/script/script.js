@@ -74,7 +74,7 @@ function placesCall() {
             console.log(this)
             placeDeetsEl = $(this);
             placeId = $(this).attr("data-placeId");
-            photoId = $(this).attr("data-photoId");
+            // photoId = $(this).attr("data-photoId");
             console.log(placeId)
             console.log(photoId)
             placesDeetsCall();
@@ -96,10 +96,10 @@ function renderInfo(){
 
             infoCard.attr("class","tile is-ancestor");
             infoCardEl1.attr("class","tile is-vertical is-8 info");
-            // if statement for no data 
-            if (placesInfo.results[i].photos != "undefined") {
-              infoCardEl1.attr("data-photoId", placesInfo.results[i].photos[0].photo_reference);
-            }
+            // if statement for no photo data 
+            // if (placesInfo.results[i].photos != "undefined") {
+              // infoCardEl1.attr("data-photoId", placesInfo.results[i].photos[0].photo_reference);
+            // }
             infoCardEl1.attr("data-placeId", placesInfo.results[i].place_id);
             infoCardEl2.attr("class","tile");
             infoCardEl3.attr("class","tile is-parent is-vertical");
