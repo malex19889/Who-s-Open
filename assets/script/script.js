@@ -7,6 +7,7 @@ var placesInfo = null;
 // global var for place
 var placesDeets = null;
 var placeDeetsEl = null;
+var modalText = null;
 var placesPic =null;
 var placeId = null;
 var photoId = null;
@@ -32,7 +33,7 @@ function showPosition(position) {
 }
 // search click function
 $("#search").on("click", function () {
-  alert("click")
+  // alert("click")
   place = $("#place").val();
   console.log(place)
   placesCall();
@@ -40,27 +41,8 @@ $("#search").on("click", function () {
 // google places API call
 function placesCall() {
   if (place === "who's open?") {
-    // create modal elements 
-    var modal = $("<div>");
-    var modalBack = $("<div>");
-    var modalCont = $("<div>");
-    var modalP = $("<p>");
-    var modalBtn = $("<button>");
-    // apply modal class
-    modal.attr("class","modal is-active is-clipped");
-    modalBack.attr("class","modal-background");
-    modalCont.attr("class","modal-content modal-card");
-    modalP.text("Please select search options for type and radius before starting a search!");
-    modalBtn.attr("class","modal-close is-large")
-    // append elements to HTML
-    $("#info").append(modal)
-    modal.append(modalBtn)
-    modal.append(modalCont)
-    modal.append(modalP)
-    modal.append(modalBtn)
-    $(".modal").on("click", function () {
-      modal.attr("class","modal is-clipped");
-    })
+    modalText = "Please select search options for type and radius before starting a search!";
+    modalRender();
   } else {
   var queryURL = "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?location="+lat+","+lon+"&radius=1500&type="+place+"&opennow&key="+config.MY_KEY;
   $.ajax({
@@ -71,7 +53,7 @@ function placesCall() {
       placesInfo = placeInfo
       renderInfo();
       $(".info").on("click", function () {
-            alert("info click")
+            // alert("info click")
             // console.log(this.data_photoid)
             console.log(this)
             placeDeetsEl = $(this);
@@ -153,6 +135,30 @@ function  renderDetsInfo(){
         day.text(placesDeets.result.opening_hours.weekday_text[i]);
         openHours.append(day);
     }
+}
+function modalRender(){
+   // create modal elements 
+    var modal = $("<div>");
+    var modalBack = $("<div>");
+    var modalCont = $("<div>");
+    var modalP = $("<p>");
+    var modalBtn = $("<button>");
+    // apply modal class
+    modal.attr("class","modal is-active is-clipped");
+    modalBack.attr("class","modal-background");
+    modalCont.attr("class","modal-content modal-card");
+    // modal.css( "background-color","gold" );
+    modalP.text(modalText);
+    modalBtn.attr("class","modal-close is-large")
+    // append elements to HTML
+    $(".content").append(modal)
+    modal.append(modalBtn)
+    modal.append(modalCont)
+    modal.append(modalP)
+    modal.append(modalBtn)
+    $(".modal").on("click", function () {
+      modal.attr("class","modal ");
+    })
 }
 // call location function on webpage load
 getLocation();
