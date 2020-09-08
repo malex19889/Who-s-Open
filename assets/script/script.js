@@ -12,6 +12,8 @@ var placeId = null;
 var photoId = null;
 var lat = null;
 var lon = null;
+var latArr = [];
+var lonArr = [];
 // var infoCardEl4 = null;
 // geolocation function
 function getLocation() {
@@ -116,6 +118,9 @@ function renderInfo(){
             infoCardEl3.append(infoCardEl4);
             infoCardEl4.append(nameEl);
             infoCardEl4.append(addrEl)
+            // push lon and lat to the array for petes code to pull from
+            lonArr.push(placesInfo.results[i].geometry.location.lng)            
+            latArr.push(placesInfo.results[i].geometry.location.lat)          
         } else {
           console.log(placesInfo.results[i])
         }
