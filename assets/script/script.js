@@ -43,6 +43,7 @@ $("#search").on("click", function () {
   radiiusCalc();
   // call places api function
   placesCall();
+  
 })
 // google places API call
 function placesCall() {
@@ -50,7 +51,7 @@ function placesCall() {
     modalText = "Please select search options for type and radius before starting a search!";
     modalRender();
   } else {
-  var queryURL = "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?location="+lat+","+lon+"&radius="+radius+"&type="+place+"&opennow&key="+config.MY_KEY;
+  var queryURL = "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?location="+lat+","+lon+"&radius=1500&type="+place+"&opennow&key="+config.MY_KEY;
   $.ajax({
     url: queryURL,
     method: "GET",
@@ -71,7 +72,6 @@ function placesCall() {
 }
 // function to render places search info
 function renderInfo(){
-  $("#info").empty()
   for(var i =0; i<placesInfo.results.length; i++){
         if (placesInfo.results[i].business_status === "OPERATIONAL") {
           // create place tile elems
@@ -111,7 +111,9 @@ function renderInfo(){
         } else {
           console.log(placesInfo.results[i])
         }
-      }    
+      }  
+      
+      
 }
 // call to places details from click
 function placesDeetsCall() {
