@@ -28,18 +28,32 @@
 
   <!-- link to external jS CDn -->
 
+  <!--howler.js-->
+  <script src="howler/howler.js"></script>
+
+  
   <title>Who's Open</title>
 </head>
 
 <body>
 
+  <script>
+    var sound = new Howl({
+  src: ['sound.mp3', 'sound.webm'],
+  loop: false,
+  html5: true,
+  buffer: true,
+  autoplay: true,
+  volume: 0.1,
+  onplayerror: function() {
+    sound.once('unlock', function() {
+      sound.play();
+    });
+  }
+});
 
-
-
-
-
-
-
+sound.play();
+  </script>
 
   <!-- page container? -->
   <img src="https://cdn4.vectorstock.com/i/1000x1000/73/73/party-time-neon-lettering-in-retro-style-vector-24957373.jpg"
@@ -139,17 +153,7 @@
           </div>
     </article>
 
-
-
-
-
-
-
-
-
   </div>
-
-
 
 
   <!-- link to script.js -->
