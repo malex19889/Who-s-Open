@@ -230,6 +230,15 @@ body {
    cursor: pointer;
  }
 
+
+ .marker2 {
+  background-image: url("https://w7.pngwing.com/pngs/403/93/png-transparent-dr-otto-octavius-the-superior-spider-man-art-comics-octopus-heroes-superhero-comic-book.png");
+  background-size: cover;
+  width: 50px; 
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+}
 .mapboxgl-popup {
     max-width: 200px;
 }
