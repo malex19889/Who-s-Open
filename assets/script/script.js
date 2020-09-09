@@ -43,6 +43,7 @@ $("#search").on("click", function () {
   radiiusCalc();
   // call places api function
   placesCall();
+  sound.play();
   
 })
 // google places API call
@@ -183,5 +184,12 @@ function radiiusCalc(){
   }
   
 }
+// set sound src and volume
+var sound = new Howl({
+  src: ['./assets/searchswoosh.mp3'],
+  volume: 0.5
+});
+
 // call location function on webpage load
 getLocation();
+
