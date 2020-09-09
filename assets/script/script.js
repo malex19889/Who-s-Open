@@ -36,6 +36,7 @@ $("#search").on("click", function () {
   // alert("click")
   place = $("#place").val();
   console.log(place)
+  radiiusCalc();
   placesCall();
   
 })
@@ -45,7 +46,7 @@ function placesCall() {
     modalText = "Please select search options for type and radius before starting a search!";
     modalRender();
   } else {
-  var queryURL = "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?location="+lat+","+lon+"&radius=1500&type="+place+"&opennow&key="+config.MY_KEY;
+  var queryURL = "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?location="+lat+","+lon+"&radius="+radius+"&type="+place+"&opennow&key="+config.MY_KEY;
   $.ajax({
     url: queryURL,
     method: "GET",
@@ -69,6 +70,7 @@ function placesCall() {
 }
 // function to render places search info
 function renderInfo(){
+  $("#info").empty()
   for(var i =0; i<placesInfo.results.length; i++){
         if (placesInfo.results[i].business_status === "OPERATIONAL") {
             var infoCard = $("<div>");
@@ -130,6 +132,7 @@ function  renderDetsInfo(){
     // console.log(deetsEl)
     var phoneNum = $("<p>");
     var openHours = $("<ul>");
+    openHours.css("list-style-type", "none")
     phoneNum.text(placesDeets.result.formatted_phone_number);
     $(placeDeetsEl).append(phoneNum);
     $(placeDeetsEl).append(openHours);
@@ -163,6 +166,20 @@ function modalRender(){
     $(".modal").on("click", function () {
       modal.attr("class","modal ");
     })
+}
+function radiiusCalc(){
+  radius = $("#miles").val();
+  console.log(radius)
+ 
+ 
+  if (radius === "mile radius") {
+    modalText = "Please select search options for radius before starting a search!";
+    modalRender();
+  } else{
+     radius = radius * 1609 
+     console.log(radius)
+  }
+  
 }
 // call location function on webpage load
 getLocation();
