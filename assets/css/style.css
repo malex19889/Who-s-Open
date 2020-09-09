@@ -80,11 +80,15 @@ select {
   width: 250px;
   margin-left: 10%;
   margin-bottom: 20px;
-  }
+}
 
+.modal{
+  background-color: rgba(2, 2, 34, 0.918);
+}
 
-
-
+ul{
+  list-style-type: none;
+}
 
 select:hover {
   background-image: -webkit-linear-gradient(rgb(243, 92, 248), rgb(156, 238, 25));
@@ -216,7 +220,7 @@ body {
 }
 
 .marker {
-   background-image: url('Spiderman.png');
+   background-image: url("/assets/imgs/Spiderman.png");
    background-size: cover;
    width: 50px;
    height: 50px;

@@ -14,7 +14,7 @@ $(document).ready(function(){
           var map = new mapboxgl.Map({
             container: 'map',
             style: 'mapbox://styles/xxmakveli22xx/ckejbvql12rye19pmbaa3b4nl',
-            center: [, ],
+            center: [-74.5, 40],
             zoom: 13
           });
            
