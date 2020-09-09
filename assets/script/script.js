@@ -7,15 +7,18 @@ var placesInfo = null;
 // global var for place
 var placesDeets = null;
 var placeDeetsEl = null;
+// var to update modal text for render
 var modalText = null;
 var placesPic =null;
+// holder for place id
 var placeId = null;
 var photoId = null;
 var lat = null;
 var lon = null;
+// arrays to hold location lon and lat
 var latArr = [];
 var lonArr = [];
-// var infoCardEl4 = null;
+
 // geolocation function
 function getLocation() {
   if (navigator.geolocation) {
@@ -36,7 +39,9 @@ $("#search").on("click", function () {
   // alert("click")
   place = $("#place").val();
   console.log(place)
+  // call radius function
   radiiusCalc();
+  // call places api function
   placesCall();
 })
 // google places API call
@@ -53,15 +58,12 @@ function placesCall() {
       console.log(placeInfo)
       placesInfo = placeInfo
       renderInfo();
+      // add click listener for tile click
       $(".info").on("click", function () {
-            // alert("info click")
-            // console.log(this.data_photoid)
             console.log(this)
             placeDeetsEl = $(this);
             placeId = $(this).attr("data-placeId");
             // photoId = $(this).attr("data-photoId");
-            console.log(placeId)
-            console.log(photoId)
             placesDeetsCall();
           })
   })
@@ -72,6 +74,7 @@ function renderInfo(){
   $("#info").empty()
   for(var i =0; i<placesInfo.results.length; i++){
         if (placesInfo.results[i].business_status === "OPERATIONAL") {
+          // create place tile elems
             var infoCard = $("<div>");
             var infoCardEl1 = $("<div>");
             var infoCardEl2 = $("<div>");
@@ -79,7 +82,7 @@ function renderInfo(){
             var infoCardEl4 = $("<article>");
             var nameEl = $("<p>");
             var addrEl = $("<p>");
-
+            // add attributes and text to elements
             infoCard.attr("class","tile is-ancestor");
             infoCardEl1.attr("class","tile is-vertical is-8 info");
             // if statement for no photo data 
@@ -94,7 +97,7 @@ function renderInfo(){
             addrEl.attr("class","subtitle");
             nameEl.text(placesInfo.results[i].name);
             addrEl.text(placesInfo.results[i].vicinity)
-
+            // append card elemnts to html
             $("#info").append(infoCard);
             infoCard.append(infoCardEl1);
             infoCardEl1.append(infoCardEl2);
@@ -117,19 +120,21 @@ function placesDeetsCall() {
       url: queryURL,
       method: "GET",
     }).then(function (placeDeets) {
-        console.log(placeDeets)
         placesDeets = placeDeets
         renderDetsInfo();      
     })
   }
 function  renderDetsInfo(){
-    // create phone nuber element
+    
     console.log($(this))
-    // console.log(deetsEl)
+    // create phone nuber element
     var phoneNum = $("<p>");
+    // create list element for hours
     var openHours = $("<ul>");
+    // apply class and text to elemnts
     openHours.css("list-style-type", "none")
     phoneNum.text(placesDeets.result.formatted_phone_number);
+    // append elements
     $(placeDeetsEl).append(phoneNum);
     $(placeDeetsEl).append(openHours);
     // loop to create open hours 
@@ -163,11 +168,10 @@ function modalRender(){
       modal.attr("class","modal ");
     })
 }
+// function to convert miles to meters
 function radiiusCalc(){
   radius = $("#miles").val();
   console.log(radius)
- 
- 
   if (radius === "mile radius") {
     modalText = "Please select search options for radius before starting a search!";
     modalRender();
@@ -179,7 +183,3 @@ function radiiusCalc(){
 }
 // call location function on webpage load
 getLocation();
-
-
-// render target id info 
-// "+lat+","+lon+"
