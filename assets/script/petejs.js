@@ -1,22 +1,27 @@
 $(document).ready(function(){
 
 
+var lng = null;
+var lat = null;
 
 
 
   getLocation();
        
+  console.log(" lat and long" + lng + lat);
  
     
+    mapboxgl.accessToken = "pk.eyJ1IjoieHhtYWt2ZWxpMjJ4eCIsImEiOiJja2VjNmhhaGcwNGtuMnVrZWdkNXprZjJnIn0.gmnmTgSzzlIYiQGGCePE3w";
+    var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/xxmakveli22xx/ckejbvql12rye19pmbaa3b4nl',
+    center: [-74.5, 40],
+    zoom: 13
+  });
+  
+    
  
-     mapboxgl.accessToken = 'pk.eyJ1IjoieHhtYWt2ZWxpMjJ4eCIsImEiOiJja2VjNmhhaGcwNGtuMnVrZWdkNXprZjJnIn0.gmnmTgSzzlIYiQGGCePE3w';
- 
-          var map = new mapboxgl.Map({
-            container: 'map',
-            style: 'mapbox://styles/xxmakveli22xx/ckejbvql12rye19pmbaa3b4nl',
-            center: [-74.5, 40],
-            zoom: 13
-          });
+          
            
          
        
@@ -88,7 +93,16 @@ $(document).ready(function(){
    }
  
  
- 
+  // Add geolocate control to the map.
+       map.addControl(
+           new mapboxgl.GeolocateControl({
+           positionOptions: {
+           enableHighAccuracy: true
+            },
+           trackUserLocation: true
+           })
+        );
+   
  
  
  
