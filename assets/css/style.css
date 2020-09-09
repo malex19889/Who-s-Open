@@ -1,0 +1,238 @@
+@import url('https://fonts.googleapis.com/css?family=Codystar:300&display=swap');
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  line-height: 1;
+  background-image: linear-gradient(122deg, #051422, rgb(44, 7, 44));
+  min-height: 100vh;
+}
+
+.box {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  background-image: linear-gradient(122deg, #051422, rgb(44, 7, 44));
+}
+
+p {
+  color: blueviolet;
+}
+
+
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  height: 400px;
+  width: 400px;
+  border-style: double;
+  border-color:  -webkit-linear-gradient(rgb(156, 238, 25), rgb(243, 92, 248)); 
+  border-width: 5px;
+}
+
+.content {
+  text-align: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: x-large;
+}
+
+h1 {
+  font-size: 72px;
+  font-weight: bolder;
+  background: -webkit-linear-gradient(rgb(156, 238, 25), rgb(243, 92, 248));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-animation: glow 2s ease-in-out infinite alternate;
+  -moz-animation: glow 2s ease-in-out infinite alternate;
+  animation: glow 2s ease-in-out infinite alternate;
+  text-align: center;
+}
+
+p {
+  font-size: 28px;
+  background: -webkit-linear-gradient(rgb(156, 238, 25), rgb(243, 92, 248));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+figure {
+  height: 200px;
+  width: 300px;
+  text-align: center;
+}
+
+select {
+  background-image: -webkit-linear-gradient(rgb(156, 238, 25), rgb(243, 92, 248));
+
+  padding: 10px;
+  font-size: 17px;
+  border: 1px solid grey;
+  cursor: pointer;
+  float: left;
+  position: relative;
+  width: 250px;
+  margin-left: 10%;
+  margin-bottom: 20px;
+}
+
+.modal{
+  background-color: rgba(2, 2, 34, 0.918);
+}
+
+ul{
+  list-style-type: none;
+}
+
+select:hover {
+  background-image: -webkit-linear-gradient(rgb(243, 92, 248), rgb(156, 238, 25));
+}
+#search:hover{
+  background-image: -webkit-linear-gradient(rgb(243, 92, 248), rgb(156, 238, 25));
+}
+
+#map {
+  float: left;
+  width: 50%;
+  text-align: center;
+  border-style: double;
+
+}
+
+#info {
+  float: right;
+  width: 50%;
+  text-align: center;
+  border-style: double;
+ 
+}
+.control1{
+  width: 50%;
+  /* text-align: right; */
+  margin-left: 25%;
+  margin-right: 0%;
+}
+.control2{
+  width: 50%;
+  /* text-align: center; */
+  margin-right: 60%;
+  margin-left: 10%;
+  
+
+}
+.field1{
+  width: 50%;
+  margin-right: 0%;
+  float: left;
+  margin-top: 10%;
+  
+}
+#whosOpenTab.select.is-primary{
+  position: sticky;
+  right: 500px;
+  display: block;
+  margin-left: 0%;
+  margin-right: 0%;
+  
+ 
+}
+/* #whosOpenTab.select.is-primary::after{
+  position: sticky;
+   left: 300px;
+  top: 20px; 
+} */
+
+#milesTab.select.is-primary{
+  position: sticky;
+  margin-right: 30%;
+  display: block;
+  
+}
+/* #milesTab.select.is-primary::after{
+  position: sticky;
+  left: 220px;
+  top: 20px;
+} */
+
+
+.field2{
+  width: 50%;
+  margin-right: 0%;
+  margin-left: 0%;
+  float: right;
+  margin-top: 10%;  
+}
+#milesTab{
+ width: 100%;
+ 
+ }
+
+#search{
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  background-image: -webkit-linear-gradient(rgb(156, 238, 25), rgb(243, 92, 248));
+  height: 25px;
+  width: 25px;
+  margin-left: 50%;
+  
+  
+}
+#place{
+  width: 100%;
+  margin-right: 0%;
+  margin-left: 10%;
+}
+#miles{
+  float: right;
+  width: 75%;
+  margin-left: 20%;
+  
+}
+@-webkit-keyframes glow {
+  from {
+    color: #fff;
+    text-shadow: 0 0 10px #00fff2, 0 0 20px #00fff2, 0 0 30px #00fff2, 0 0 40px #00fff2, 0 0 50px #00fff2, 0 0 60px #00fff2, 0 0 70px #00fff2, 0 0 90px #00fff2;
+  }
+
+  to {
+    color: gray;
+    text-shadow: 0 0 20px #00fff2, 0 0 30px #00fff2, 0 0 40px #00fff2, 0 0 50px #00fff2, 0 0 60px #00fff2, 0 0 70px #00fff2, 0 0 80px #00fff2, 0 1 90px #00fff2;
+  }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+#map {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+.marker {
+   background-image: url("assets/imgs/Spiderman.png");
+   background-size: cover;
+   width: 50px;
+   height: 50px;
+   border-radius: 50%;
+   cursor: pointer;
+ }
+
+.mapboxgl-popup {
+    max-width: 200px;
+}
+
+.mapboxgl-popup-content {
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
+}
