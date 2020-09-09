@@ -207,6 +207,8 @@ select:hover {
   }
 }
 
+
+
 body {
   margin: 0;
   padding: 0;
@@ -220,9 +222,9 @@ body {
 }
 
 .marker {
-   background-image: url("assets/imgs/Spiderman.png");
+   background-image: url("/assets/imgs/Spiderman.png");
    background-size: cover;
-   width: 50px;
+   width: 50px; 
    height: 50px;
    border-radius: 50%;
    cursor: pointer;
