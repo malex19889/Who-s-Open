@@ -8,7 +8,10 @@ $(document).ready(function(){
   */
 
 
-  
+  getLocation();
+
+
+
   mapboxgl.accessToken = "pk.eyJ1IjoieHhtYWt2ZWxpMjJ4eCIsImEiOiJja2VjNmhhaGcwNGtuMnVrZWdkNXprZjJnIn0.gmnmTgSzzlIYiQGGCePE3w";
   var map = new mapboxgl.Map({
   container: 'map',
