@@ -1,14 +1,19 @@
 $(document).ready(function(){
 
 
-/*
-  $(".info").on("click", function () {
-    displayResults();
-  })
-  */
 
 
+
+  getLocation();
+
+  $("#search").on("click", function () {
+   
+    setTimeout(displayResults,3000);
+  });
   
+
+
+
   mapboxgl.accessToken = "pk.eyJ1IjoieHhtYWt2ZWxpMjJ4eCIsImEiOiJja2VjNmhhaGcwNGtuMnVrZWdkNXprZjJnIn0.gmnmTgSzzlIYiQGGCePE3w";
   var map = new mapboxgl.Map({
   container: 'map',
@@ -35,7 +40,7 @@ $(document).ready(function(){
          coordinates: [lng, lat]
        },
        properties: {
-         title: 'City',
+         title: "Current Location",
          description: 'San Antonio, Texas'
        }
      
@@ -60,18 +65,59 @@ geojson.features.forEach(function(marker) {
  });
 
 
+};
 
-
-
-
- };
-
- function displayResults(){
+//this will display the search results on the map
+function displayLocation2(lng, lat, placeName, placeAddress){
+  var geojson = {
+    type: 'FeatureCollection',
+    features: [{
+       type: 'Feature',
+       geometry: {
+        type: 'Point',
+        coordinates: [lng, lat]
+      },
+      properties: {
+        title: placeName,
+        description: placeAddress
+      }
     
-      for(var i = 0; i < latArr.length; i++){
-        console.log("This array is Lat "+ latArr[i]+ " Long "+ lonArr[i]);
+  }]
+    
+  };
+    
 
-        displayLocation(lonArr[i], latArr[i]); 
+  // add markers to map
+geojson.features.forEach(function(marker) {
+
+// create a HTML element for each feature
+var el = document.createElement('div');
+    el.className = 'marker2';
+
+// make a marker for each feature and add to the map
+    new mapboxgl.Marker(el)
+         .setLngLat(marker.geometry.coordinates)
+         .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
+         .setHTML('<h3>' + marker.properties.title + '</h3><p>' + marker.properties.description + '</p>'))
+         .addTo(map);
+});
+
+
+
+  
+};
+
+//this will get the locations information
+ function displayResults(){
+      
+      var placeName ="";
+      var placeAddress = "";
+      
+      for(var i = 0; i < latArr.length; i++){
+       
+        placeName = placesInfo.results[i].name;
+        placeAddress = placesInfo.results[i].vicinity;
+        displayLocation2(lonArr[i], latArr[i], placeName, placeAddress); 
       
       
       
