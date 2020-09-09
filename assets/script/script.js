@@ -51,7 +51,7 @@ function placesCall() {
     modalText = "Please select search options for type and radius before starting a search!";
     modalRender();
   } else {
-  var queryURL = "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?location="+lat+","+lon+"&radius=1500&type="+place+"&opennow&key="+config.MY_KEY;
+  var queryURL = "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?location="+lat+","+lon+"&radius="+radius+"&type="+place+"&opennow&key="+config.MY_KEY;
   $.ajax({
     url: queryURL,
     method: "GET",
