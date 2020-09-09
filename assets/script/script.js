@@ -41,8 +41,10 @@ $("#search").on("click", function () {
   console.log(place)
   // call radius function
   radiiusCalc();
+  $("#info").empty();
   // call places api function
   placesCall();
+  sound.play();
   
 })
 // google places API call
@@ -58,7 +60,11 @@ function placesCall() {
   }).then(function (placeInfo) {
       console.log(placeInfo)
       placesInfo = placeInfo
-      renderInfo();
+      if (placesInfo.status === "ZERO_RESULTS") {
+        modalText = "No locations open at this time!"
+        modalRender();
+      } else {
+         renderInfo();
       // add click listener for tile click
       $(".info").on("click", function () {
             console.log(this)
@@ -66,7 +72,10 @@ function placesCall() {
             placeId = $(this).attr("data-placeId");
             // photoId = $(this).attr("data-photoId");
             placesDeetsCall();
+            sound.play();
           })
+      }
+     
   })
 }
 }
@@ -127,7 +136,6 @@ function placesDeetsCall() {
     })
   }
 function  renderDetsInfo(){
-    
     console.log($(this))
     // create phone nuber element
     var phoneNum = $("<p>");
@@ -183,5 +191,12 @@ function radiiusCalc(){
   }
   
 }
+// set sound src and volume
+var sound = new Howl({
+  src: ['./assets/searchswoosh.mp3'],
+  volume: 0.5
+});
+
 // call location function on webpage load
 getLocation();
+
