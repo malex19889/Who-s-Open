@@ -36,7 +36,6 @@ $("#search").on("click", function () {
   // alert("click")
   place = $("#place").val();
   console.log(place)
-  radiiusCalc();
   placesCall();
   
 })
@@ -46,7 +45,7 @@ function placesCall() {
     modalText = "Please select search options for type and radius before starting a search!";
     modalRender();
   } else {
-  var queryURL = "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?location="+lat+","+lon+"&radius="+radius+"&type="+place+"&opennow&key="+config.MY_KEY;
+  var queryURL = "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?location="+lat+","+lon+"&radius=1500&type="+place+"&opennow&key="+config.MY_KEY;
   $.ajax({
     url: queryURL,
     method: "GET",
@@ -70,7 +69,6 @@ function placesCall() {
 }
 // function to render places search info
 function renderInfo(){
-  $("#info").empty()
   for(var i =0; i<placesInfo.results.length; i++){
         if (placesInfo.results[i].business_status === "OPERATIONAL") {
             var infoCard = $("<div>");
@@ -110,8 +108,7 @@ function renderInfo(){
           console.log(placesInfo.results[i])
         }
       }  
-      //this my function to display the locations on the map
-      displayResults();
+      
       
 }
 // call to places details from click
@@ -132,7 +129,6 @@ function  renderDetsInfo(){
     // console.log(deetsEl)
     var phoneNum = $("<p>");
     var openHours = $("<ul>");
-    openHours.css("list-style-type", "none")
     phoneNum.text(placesDeets.result.formatted_phone_number);
     $(placeDeetsEl).append(phoneNum);
     $(placeDeetsEl).append(openHours);
@@ -167,20 +163,6 @@ function modalRender(){
       modal.attr("class","modal ");
     })
 }
-function radiiusCalc(){
-  radius = $("#miles").val();
-  console.log(radius)
- 
- 
-  if (radius === "mile radius") {
-    modalText = "Please select search options for radius before starting a search!";
-    modalRender();
-  } else{
-     radius = radius * 1609 
-     console.log(radius)
-  }
-  
-}
 // call location function on webpage load
 getLocation();
 
@@ -190,7 +172,7 @@ getLocation();
 // "+lat+","+lon+"
 
 
-//My Code delete if it doesn't work 
+
 
 
 
@@ -198,108 +180,4 @@ getLocation();
 
 
 
-
-  
-  mapboxgl.accessToken = "pk.eyJ1IjoieHhtYWt2ZWxpMjJ4eCIsImEiOiJja2VjNmhhaGcwNGtuMnVrZWdkNXprZjJnIn0.gmnmTgSzzlIYiQGGCePE3w";
-  var map = new mapboxgl.Map({
-  container: 'map',
-  style: 'mapbox://styles/xxmakveli22xx/ckejbvql12rye19pmbaa3b4nl',
-  center: [-98.6087424, 29.501030399999998],
-  zoom: 14
-});
-
-  
-
-        
-         
-       
-     
-
- function displayLocation(lng, lat){
-
-   var geojson = {
-     type: 'FeatureCollection',
-     features: [{
-        type: 'Feature',
-        geometry: {
-         type: 'Point',
-         coordinates: [lng, lat]
-       },
-       properties: {
-         title: 'City',
-         description: 'San Antonio, Texas'
-       }
-     
-   }]
-     
-   };
-     
-
-   // add markers to map
-geojson.features.forEach(function(marker) {
-
- // create a HTML element for each feature
- var el = document.createElement('div');
-     el.className = 'marker';
- 
- // make a marker for each feature and add to the map
- new mapboxgl.Marker(el)
-   .setLngLat(marker.geometry.coordinates)
-   .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
-   .setHTML('<h3>' + marker.properties.title + '</h3><p>' + marker.properties.description + '</p>'))
-   .addTo(map);
- });
-
-
-
-
-
-
- };
-
- function displayResults(){
-    
-      for(var i = 0; i < latArr.length; i++){
-        console.log("This array is Lat "+ latArr[i]+ " Long "+ lonArr[i]);
-
-        displayLocation(lonArr[i], latArr[i]); 
-      
-      
-      
-      }   
-
-
- }
- 
-
- 
- 
- 
- //this function will grab the geo location
- function getLocation() {
- 
- 
-   if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition);
-        }else { 
-             x.innerHTML = "Geolocation is not supported by this browser.";
-           }
-      }
-  
-    function showPosition(position) {
-         var lng = position.coords.longitude;
-         var lat = position.coords.latitude;
-         displayLocation(lng,lat);
-        }
-
-
-// Add geolocate control to the map.
-     map.addControl(
-         new mapboxgl.GeolocateControl({
-         positionOptions: {
-         enableHighAccuracy: true
-          },
-         trackUserLocation: true
-         })
-      );
  
