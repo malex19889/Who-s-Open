@@ -60,7 +60,9 @@ function placesCall() {
   }).then(function (placeInfo) {
       console.log(placeInfo)
       placesInfo = placeInfo
+      // evaluate for no results
       if (placesInfo.status === "ZERO_RESULTS") {
+        // if no results render modal
         modalText = "No locations open at this time!"
         modalRender();
       } else {
@@ -69,9 +71,13 @@ function placesCall() {
       $(".info").on("click", function () {
             console.log(this)
             placeDeetsEl = $(this);
+            // get place id for selected elemnt
             placeId = $(this).attr("data-placeId");
-            // photoId = $(this).attr("data-photoId");
+            photoId = $(this).attr("data-photoId");
+            console.log(photoId)
+            // place call for tile details
             placesDeetsCall();
+            // photoCall();
             sound.play();
           })
       }
@@ -95,9 +101,9 @@ function renderInfo(){
             infoCard.attr("class","tile is-ancestor");
             infoCardEl1.attr("class","tile is-vertical is-8 info");
             // if statement for no photo data 
-            // if (placesInfo.results[i].photos != "undefined") {
-              // infoCardEl1.attr("data-photoId", placesInfo.results[i].photos[0].photo_reference);
-            // }
+            if (placesInfo.results[i].photos) {
+              infoCardEl1.attr("data-photoId", placesInfo.results[i].photos[0].photo_reference);
+            }
             infoCardEl1.attr("data-placeId", placesInfo.results[i].place_id);
             infoCardEl2.attr("class","tile");
             infoCardEl3.attr("class","tile is-parent is-vertical");
@@ -135,6 +141,7 @@ function placesDeetsCall() {
         renderDetsInfo();      
     })
   }
+// function to render extended details for this location
 function  renderDetsInfo(){
     console.log($(this))
     // create phone nuber element
@@ -154,6 +161,26 @@ function  renderDetsInfo(){
         openHours.append(day);
     }
 }
+// place photo call
+// function photoCall(){
+//   var queryURL = "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference="+photoId+"&key="+config.MY_KEY;
+//     $.ajax({
+//       url: queryURL,
+//       method: "GET",
+//     }).then(function (placePhoto) {
+//         placesPic = placePhoto
+//         console.log(placesPic)
+//         renderPhoto();
+//         // renderDetsInfo();   
+//       })
+// }
+// function  renderPhoto(){
+//   var pic = $("<img>");
+//   pic = placesPic
+//   $(placeDeetsEl).append(pic);
+ 
+// }
+// function to render modal
 function modalRender(){
    // create modal elements 
     var modal = $("<div>");
